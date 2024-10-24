@@ -73,9 +73,11 @@ def read_json(file_path):
         
     return data, entries
 
-def configure_logging():
+def configure_logging(path):
+
+    full_path = os.path.join(path, 'draft_data.log')
     # Configure logging with rotating file handler
-    log_handler = RotatingFileHandler('draft_data.log',maxBytes=5 * 1024 * 1024,backupCount=1)
+    log_handler = RotatingFileHandler(full_path,maxBytes=5 * 1024 * 1024,backupCount=1)
 
     # Set up logging format
     log_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
@@ -89,11 +91,12 @@ def configure_logging():
 def main():
     global LEAGUE_ID
     LEAGUE_ID = '17526'
-    configure_logging()
+    
 
     # Get the directory of the current script
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    print(script_dir)
+    
+    configure_logging(script_dir)
 
     """ # Define the path to the .json file relative to the script's location
     file_path = os.path.join(script_dir, 'FPL_draft_project') """
