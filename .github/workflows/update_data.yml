@@ -16,6 +16,10 @@ jobs:
             - name: Checkout repo
               uses: actions/checkout@v2
 
+              # List files for debugging
+            - name: List files
+              run: ls -R
+
             # Step 2: Set up Python 3.x
             - name: Set up Python
               uses: actions/setup-python@v2
