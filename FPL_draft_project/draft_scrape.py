@@ -4,6 +4,8 @@ import logging
 from logging.handlers import RotatingFileHandler
 import os
 
+debug = False
+
 def api_request(league_id):
     url = f"https://draft.premierleague.com/api/league/{league_id}/details"
     
@@ -27,7 +29,7 @@ def update_data(data, entries, script_dir):
     logging.info('Updating data...')
     for player in response['standings']:
         league_entry = player['league_entry']
-        name = entries[league_entry]
+        name = entries[str(league_entry)]
         
         # Retrieve data fields we are interested in
         points_for = player['points_for'] # plus_minus for
