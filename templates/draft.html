@@ -3,9 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Wigh.nu</title>
-        <link rel="stylesheet" href="../main.css">
-        <link rel="stylesheet" href="../draft.css">
+        <title>BlueBayCup</title>
+        <link rel="stylesheet" href="../styles/main.css">
+        <link rel="stylesheet" href="../styles/draft.css">
         <link rel="icon" href="../images/logo.jpg">
     </head>
 
@@ -20,15 +20,18 @@
             </nav>
             <h1>FPL Draft</h1>
         </header>
-        <div class="Overall">
+
+        <section class="overall">
             Under development.
-            <h2>Overall</h2>
             <table id="data-table" border="1">
+                <h2>
+                    Overall
+                </h2>
 
                 <thead>
                     <tr>
                         <th>Rank</th>
-                        <th>Participant</th>
+                        <th>Name</th>
                         <th>Appearances</th>
                         <th>1st</th>
                         <th>2nd</th>
@@ -43,8 +46,62 @@
 
                 <tbody></tbody>
             </table>
-            <script src="../FPL_draft_project/draft.js"></script>
-        </div>
+            
+            
+        </section>
+
+        <section class="season-data">
+            <div class="banner">
+                <h2>Select a Season</h2>
+                <div id="seasonButtons">
+                    <button class="season-button" data-season="23/24">23/24</button>
+                    <button class="season-button active" data-season="24/25">24/25</button>
+                </div>
+                
+            </div>
+            <table id="seasonTable">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Team</th>
+                        <th>Wins</th>
+                        <th>Draws</th>
+                        <th>Losses</th>
+                        <th>Points For</th>
+                        <th>Total Points</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <div class="season-charts">
+                <canvas id="rank-dev"></canvas>
+                <canvas id="total-points-dev"></canvas>
+                <canvas id="points-for-dev"></canvas>
+                <canvas id="points-against-dev"></canvas>
+            </div>
+        </section>
+
+        <section class="player-data">
+            <div class="banner">
+                <h2>Select Player (Not implemented yet)</h2>
+                <select name="" id="">
+                    <option value="">--Choose Player--</option>
+                    <option value="Hugo Wigh">Hugo Wigh</option>
+                    <option value="Erik Kask">Erik Kask</option>
+                    <option value="Anton Novén">Anton Novén</option>
+                    <option value="Benjamin Sten">Benjamin Sten</option>
+                    <option value="Johan Svensson">Johan Svensson</option>
+                    <option value="Jakob Ekholm">Jakob Ekholm</option>
+                    <option value="Markus Johansson">Markus Johansson</option>
+                    <option value="Nima Tehranchi">Nima Tehranchi</option>
+                    <option value="Samuel Alm">Samuel Alm</option>
+                    <option value="Hampus Kennebäck">Hampus Kennebäck</option>
+                </select>
+            </div>
+        </section>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="../scripts/draft.js"></script>
     </body>
 
 </html>

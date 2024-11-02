@@ -5,6 +5,7 @@ from logging.handlers import RotatingFileHandler
 import os
 
 debug = False
+current_season = "24/25"
 
 def api_request(league_id):
     url = f"https://draft.premierleague.com/api/league/{league_id}/details"
@@ -36,16 +37,22 @@ def update_data(data, entries, script_dir):
         points_against = player['points_against'] # plus_minus against
         rank = player['rank']
         total = player['total'] # Total points
-        gw_score_for = int(points_for) - int(data[name][gameweek-1]['points_for'])
-        gw_score_against = int(points_against) - int(data[name][gameweek-1]['points_against'])
+        gw_score_for = int(points_for) - int(data[current_season][name][gameweek-1]['points_for'])
+        gw_score_against = int(points_against) - int(data[current_season][name][gameweek-1]['points_against'])
+        wins = int(player['matches_won'])
+        draws = int(player['matches_drawn'])
+        losses = int(player['matches_lost'])
         
         # Add the new data to the dictionary
-        data[name][gameweek]['rank'] = rank
-        data[name][gameweek]['points_for'] = points_for
-        data[name][gameweek]['points_against'] = points_against
-        data[name][gameweek]['total'] = total
-        data[name][gameweek]['gw_score_for'] = gw_score_for
-        data[name][gameweek]['gw_score_against'] = gw_score_against
+        data[current_season][name][gameweek]['rank'] = rank
+        data[current_season][name][gameweek]['points_for'] = points_for
+        data[current_season][name][gameweek]['points_against'] = points_against
+        data[current_season][name][gameweek]['total'] = total
+        data[current_season][name][gameweek]['gw_score_for'] = gw_score_for
+        data[current_season][name][gameweek]['gw_score_against'] = gw_score_against
+        data[current_season][name][gameweek]['wins'] = wins
+        data[current_season][name][gameweek]['draws'] = draws
+        data[current_season][name][gameweek]['losses'] = losses
     
     # Save the data to file
     save_as_json(data, script_dir)
@@ -105,8 +112,8 @@ def main():
 
     data, entries = read_json(script_dir)
     
-    for gw in range(len(data['Gorast Gunners'])):
-        if data['Gorast Gunners'][gw] == {}:
+    for gw in range(len(data['24/25']['Gorast Gunners'])):
+        if data[current_season]['Gorast Gunners'][gw] == {}:
             global max_gw
             max_gw = gw - 1
             break
