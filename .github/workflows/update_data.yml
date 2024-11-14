@@ -1,11 +1,12 @@
-name: Update Data every Thursday
+name: Update Data every week
 
 # This section specifies the schedule (cron) to run the script
 
 on:
     schedule:
-        # Run every Thursday at 12:00 CET (Swedish time)
-        - cron: '0 11 * * 4'
+       
+        # Run every Monday, Tuesday, and Thursday at 12:00 CET (Swedish time)
+        - cron: '0 11 * * 1,2,4'
     workflow_dispatch: # Allows manual triggering of the action
 
 jobs:
