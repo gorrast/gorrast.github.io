@@ -132,19 +132,19 @@ const totalOptions = getChartOptions({
 // Points for
 const forOptions = getChartOptions({
   yAxisInverted: false,
-  yMin: 0,
-  yAxisTitle: 'Points For',
+  yMin: 20,
+  yAxisTitle: 'Average Points',
   xAxisTitle: 'Gameweek',
-  chartTitle: 'Points For by Gameweek'
+  chartTitle: 'Average Points by Gameweek'
 });
 
 // Points against
 const againstOptions = getChartOptions({
   yAxisInverted: false,
-  yMin: 0,
-  yAxisTitle: 'Points Against',
+  yMin: 20,
+  yAxisTitle: 'Average Points Against',
   xAxisTitle: 'Gameweek',
-  chartTitle: 'Points Against by Gameweek'
+  chartTitle: 'Average Points Against by Gameweek'
 });
 
 function getChartOptions({ yAxisInverted = false, yMin = 0, yMax = null, yAxisTitle = '', xAxisTitle = '', chartTitle = '' }) {
@@ -212,11 +212,21 @@ async function genSeasonChart(filePath, type){
   // Generate x-axis labels (e.g., "GW1", "GW2", ..., "GW39")
   const maxGameWeeks = 38;  
   const xLabels = Array.from({length: maxGameWeeks + 1}, (_, i) => `GW${i}`);
+  
 
   // Prepare y-values for each team
   const datasets = [];
   for (const [team, values] of Object.entries(seasonData)){
-    const yValues = values.map(gw => parseInt(gw[type], 10));
+    //const yValues = values.map(gw => parseInt(gw[type], 10));
+    let yValues;
+    if (type === 'points_for' || type === 'points_against') {
+      yValues = [null, ...values.slice(1).map((gw, index) => {
+        const value = parseInt(gw[type], 10);
+        return value / (index + 1); // Calculate the average, index + 1 to account for the slice
+      })];
+    } else {
+      yValues = values.map(gw => parseInt(gw[type], 10));
+    }
 
     // get the color for graph
     const color = teamColors[team] || "rgb(0,0,0)"; // Fallback to black if no color is found
