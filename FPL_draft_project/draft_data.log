@@ -79,3 +79,6 @@
 2025-02-06 11:09:13,929 - INFO - Latest data available, nothing to update
 2025-02-10 11:09:21,555 - INFO - Latest data available, nothing to update
 2025-02-11 11:09:29,466 - INFO - Latest data available, nothing to update
+2025-02-13 11:09:10,400 - INFO - Updating data...
+2025-02-13 11:09:10,403 - INFO - Data saved as JSON-file
+2025-02-13 11:09:10,403 - INFO - Data updated successfully!
