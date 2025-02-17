@@ -1,226 +1,178 @@
-.overall {
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
     color: #333;
-    max-width: 100%;
-    overflow-x: scroll;
 }
 
-.overall h2 {
+/* Header and Navigation */
+header {
+    background-color: #004488;
+    color: white;
     text-align: center;
-    
+    padding: 15px;
 }
 
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #002244;
+}
+
+nav ul li {
+    padding: 10px 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Table Styling */
 table {
     width: 100%;
     border-collapse: collapse;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
-}
-
-/* Style for table header */
-th {
-    position: sticky;
-    top: 0;
-    background-color: #007bff;
-    color: #fff;
-    
+    background-color: white;
+    margin: 20px auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 th, td {
-    padding: 1rem;
+    padding: 12px;
+    border: 1px solid #ddd;
     text-align: center;
 }
 
-/* Zebra striping for rows */
-/* tbody tr:nth-child(even) {
-background-color: rgba(190, 223, 245, 0.2);
-} */
+th {
+    background-color: #0066cc;
+    color: white;
+}
 
-/* Hover effect */
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
 tbody tr:hover {
-background-color: #e9ecef;
-cursor: pointer;
+    background-color: #ddd;
 }
 
-.season-data {
-    width: 100%;
+/* Mobile Optimization: Scale the Table */
+@media screen and (max-width: 768px) {
+    .overall table, 
+    .season-data table {
+        transform: scale(0.8);
+        transform-origin: top left;
+        display: block;
+        overflow-x: auto;
+    }
+    
+    th, td {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
 }
 
+/* Banner Styling */
 .banner {
-    background-color: rgba(190,190,190, 0.2);
-    color: black;
-    padding: 2rem;
-    width: 95%;
     text-align: center;
+    background-color: #0066cc;
+    color: white;
+    padding: 15px;
+    margin: 20px auto;
+    border-radius: 8px;
 }
 
-#seasonButtons {
-    
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    margin-top: 0px;
-}
-
+/* Season Button Styling */
 .season-button {
-    padding: 10px 20px;
-    background-color: #999;
-    border: none;
-    border-radius: 4px;
+    background-color: #0066cc;
+    color: white;
+    border: 2px solid #0066cc;
+    padding: 12px 18px;
+    margin: 5px;
     cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.05s;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
+/* Selected Button */
+.season-button.active {
+    background-color: white;
+    color: #0066cc;
+    border: 2px solid #004488;
+    transform: scale(1.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Effect */
 .season-button:hover {
-    background-color: #444;
+    background-color: #004488;
+    color: white;
+    transform: scale(1.05);
 }
 
-.season-button:active {
-    background-color: #007bff;
-}
-
-#seasonTable {
-    color: #333;
-}
-
-.season-charts {
-    display: grid;
-    gap: 10px;
+/* Player Selection */
+.player-data select {
     padding: 10px;
-    width: 100%;
-    max-width: 50em;
-    /*justify-content: left; */
-    
-}
-
-.season-charts canvas {
-    height: auto;
-    width: 400px;
-    aspect-ratio: 1 / 1; /* Keeps the charts square, adjusting to grid cell width */
-}
-
-/* 2x2 grid for larger screens */
-@media (min-width: 800px) {
-    .season-charts {
-      grid-template-columns: 1fr 1fr; /* Two columns */
-      grid-template-rows: auto auto;  /* Two rows */
-
-    }
-  }
-  
-  /* Stack charts vertically on smaller screens */
-  @media (max-width: 799px) {
-    .season-charts {
-      grid-template-columns: 1fr; /* Single column */
-      padding: 0;
-      gap: 5px;
-      min-height: fit-content;
-    }
-  }
-
-@media screen and (max-width: 1015px) {
-    /* Max width before table does not fit */
-
-
-    
-
-}
-
-@media screen and (max-width: 750px){
-    th {
-        display: none;
-    }
-
-    td {
-        /* display: block; */
-        display: grid;
-        gap: 0.5rem;
-        grid-template-columns: 15ch auto;
-        padding: 0.5rem 1rem;
-        text-align: left;
-    }
-
-
-    td:first-child {
-        padding-top: 2rem;
-    }
-    td:last-child {
-        padding-bottom: 2rem;
-    }
-    td::before{
-        font-weight: bold;
-        text-transform: capitalize;
-    }
-
-    td:nth-of-type(1)::before {
-        content: "Rank: ";
-    }
-    td:nth-of-type(2)::before {
-        content: "Name: ";
-    }
-    td:nth-of-type(3)::before {
-        content: "Appearances: ";
-    }
-    td:nth-of-type(4)::before {
-        content: "1st: ";
-    }
-    td:nth-of-type(5)::before {
-        content: "2nd: ";
-    }
-    td:nth-of-type(6)::before {
-        content: "3rd: ";
-    }
-    td:nth-of-type(7)::before {
-        content: "Avg. Total Points: ";
-    }
-    td:nth-of-type(8)::before {
-        content: "Avg. Points For: ";
-    }
-    td:nth-of-type(9)::before {
-        content: "Avg. Points Against: ";
-    }
-    td:nth-of-type(10)::before {
-        content: "Tot Prize Money: ";
-    }
-    td:nth-of-type(11)::before {
-        content: "Earnings/Losses: ";
-    }
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 
   /* Color scales for 1st (gold), 2nd (silver), and 3rd (bronze) */
-  .gold-scale-low {
+.gold-scale-low {
     background-color: #f9e4b7;
   }
 
-  .gold-scale-medium {
+.gold-scale-medium {
     background-color: #f2c94c;
   }
 
-  .gold-scale-high {
+.gold-scale-high {
     background-color: #e4b000;
   }
 
-  .silver-scale-low {
+.silver-scale-low {
     background-color: #e1e1e1;
   }
 
-  .silver-scale-medium {
+.silver-scale-medium {
     background-color: #bcbcbc;
   }
 
-  .silver-scale-high {
+.silver-scale-high {
     background-color: #a6a6a6;
   }
 
-  .bronze-scale-low {
+.bronze-scale-low {
     background-color: #e6b89c;
   }
 
-  .bronze-scale-medium {
+.bronze-scale-medium {
     background-color: #d89a67;
   }
 
-  .bronze-scale-high {
+.bronze-scale-high {
     background-color: #b8772b;
   }
