@@ -5,8 +5,8 @@ name: Update Data every week
 on:
     schedule:
        
-        # Run every Monday, Tuesday, and Thursday at 12:00 CET (Swedish time)
-        - cron: '0 11 * * 1,2,4'
+        # Run every day at 8:00 AM Swedish time (CET/CEST)
+        - cron: '0 6 * * *'
     workflow_dispatch: # Allows manual triggering of the action
 
 jobs:

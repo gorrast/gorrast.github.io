@@ -354,6 +354,7 @@ async function genSeasonTable(filePath) {
       draws: latestGameweekData.draws !== undefined ? latestGameweekData.draws : "-",
       losses: latestGameweekData.losses !== undefined ? latestGameweekData.losses : "-",
       points_for: latestGameweekData.points_for !== undefined ? latestGameweekData.points_for : "-",
+      points_against: latestGameweekData.points_against !== undefined ? latestGameweekData.points_against : "-",
       total: latestGameweekData.total !== undefined ? latestGameweekData.total : "-"
     });
   }
@@ -370,6 +371,7 @@ async function genSeasonTable(filePath) {
         <td>${teamData.draws}</td>
         <td>${teamData.losses}</td>
         <td>${teamData.points_for}</td>
+        <td>${teamData.points_against}</td>
         <td>${teamData.total}</td>
     `;
     tableBody.appendChild(row);
