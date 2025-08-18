@@ -6,7 +6,7 @@ on:
     schedule:
        
         # Run every day at 8:00 AM Swedish time (CET/CEST)
-        - cron: '0 6 * * *'
+         - cron: '0 6 * * *'
     workflow_dispatch: # Allows manual triggering of the action
 
 jobs:

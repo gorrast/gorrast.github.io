@@ -5,7 +5,7 @@ from logging.handlers import RotatingFileHandler
 import os
 
 debug = False
-current_season = "24/25"
+current_season = "25/26"
 
 def api_request(league_id):
     url = f"https://draft.premierleague.com/api/league/{league_id}/details"
@@ -30,7 +30,8 @@ def update_data(data, entries, script_dir):
     logging.info('Updating data...')
     for player in response['standings']:
         league_entry = player['league_entry']
-        name = entries[str(league_entry)]
+        print(entries)
+        name = entries[league_entry]
         
         # Retrieve data fields we are interested in
         points_for = player['points_for'] # plus_minus for
@@ -72,7 +73,7 @@ def save_as_json(data, file_path):
 def read_json(file_path):
 
     data_path = os.path.join(file_path, 'draft_data.json')
-    entries_path = os.path.join(file_path, 'draft_entries.json')
+    entries_path = os.path.join(file_path, 'draft_entries_25_26.json')
 
     with open(data_path, 'r') as file:
         data = json.load(file)
@@ -81,6 +82,24 @@ def read_json(file_path):
         entries = json.load(file)
         
     return data, entries
+
+def update_entries(file_path):
+    '''
+    For new season
+    Get the latest entries from an api request and update the entries variable
+    '''
+    response = api_request(LEAGUE_ID)
+    entries = {}
+    for player in response['league_entries']:
+        name = player['entry_name']
+        entry = player['id']
+        entries[entry] = name
+        
+    filename = f"draft_entries_25_26.json"
+    with open(os.path.join(file_path, filename), 'w') as file:
+        json.dump(entries, file)
+    return entries
+    
 
 def configure_logging(path):
 
@@ -96,12 +115,54 @@ def configure_logging(path):
     logger.setLevel(logging.INFO)
     logger.addHandler(log_handler)
     
+def print_response():
+    '''
+    For understanding of the data coming from the API
+    '''
+    
+    response = api_request(LEAGUE_ID)
+    print("Keys level 1: ")
+    print(list(response.keys()))
+    
+    print("\n\nLeague Entries:")
+    print(response['league_entries'])
+    print("\n\nStandings:")
+    print(response['standings'])
+
+    
+def new_season(data, script_dir):
+    """ 
+    Initialize a new season with empty data structures. 
+    """
+
+    season_data = {}
+    entries = update_entries(script_dir)
+    for team_name in entries.values():
+        season_data[team_name] = [{} for _ in range(39)] # Initialize with empty dictionaries for each gameweek
+        # Initialize gameweek 0
+        season_data[team_name][0] = {
+            'rank': 1,
+            'points_for': 0,
+            'points_against': 0,
+            'total': 0,
+            'wins': 0,
+            'draws': 0,
+            'losses': 0
+        }
+    data[current_season] = season_data
+
+    # save the new season data to file
+    save_as_json(data, script_dir)
+    return data, entries
 
 def main():
     global LEAGUE_ID
-    LEAGUE_ID = '17526'
+    LEAGUE_ID_24_25 = '17526'
+    LEAGUE_ID = '110'
     
-
+    print_response()
+    
+    
     # Get the directory of the current script
     script_dir = os.path.dirname(os.path.abspath(__file__))
     
@@ -112,15 +173,24 @@ def main():
 
     data, entries = read_json(script_dir)
     
-    for gw in range(len(data['24/25']['Gorast Gunners'])):
-        if data[current_season]['Gorast Gunners'][gw] == {}:
+    # New season?
+    if current_season not in data:
+        # new season, setup new dict
+        logging.info("New season, preparing data...")
+        data, entries = new_season(data, script_dir)
+        
+    
+    
+    for gw in range(39):
+        if data[current_season]['Florian AuschWirtz'][gw] == {}: # Find the first empty gameweek
             global max_gw
             max_gw = gw - 1
             break
+        if gw == 39:
+            logging.info("Season complete, nothing to update")
 
     data = update_data(data, entries, script_dir)
 
-    
 
 
         

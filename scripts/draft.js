@@ -1,6 +1,6 @@
 
 // Value for what season should be viewed. Defaulted to the most recent one
-let currentSeason = "24/25";
+let currentSeason = "25/26";
 let rankChart;
 let totalChart;
 let forChart;
@@ -84,7 +84,8 @@ function loadCSV(file) {
 const teamColors = {
   // Hugo
   "Gorast FC": "rgb(180, 99, 132)",
-  "Gorast Gunners": "rgb(180, 99, 132)",   
+  "Gorast Gunners": "rgb(180, 99, 132)",  
+  "Florian AuschWirtz": "rgb(180, 99, 132)",   
   // Markus
   "Glizzy Darwizzy": "rgb(54, 162, 235)",
   // Benjamin
@@ -92,12 +93,16 @@ const teamColors = {
   // Johan
   "Laplace FC": "rgb(75, 192, 192)",
   "gg": "rgb(75, 192, 192)",
+  "HaCunha Matata": "rgb(75, 192, 192)",
   // Anton
   "Royal Antonwerp FC": "rgb(153, 102, 255)",
+  "Ha Noivén FC": "rgb(153, 102, 255)",
   // Hampus
   "Galna hästen sthlm": "rgb(255, 159, 64)",
+  "Hampthechamp": "rgb(255, 159, 64)",
   // Erik
   "Kasko Fantastico": "rgb(0, 204, 102)", // Medium Green
+  "Seskoffender": "rgb(0, 204, 102)", // Medium Green
   // Jakob
   "Miami Boys Choir": "rgb(255, 128, 0)", // Bright Orange
   // Samuel
@@ -106,7 +111,8 @@ const teamColors = {
   "Draken United": "rgb(0, 102, 204)", // Deep Blue
   // August
   "Boca Blue Bay": "rgb(201, 203, 207)", // Light gray
-
+  // Eric
+  "Eva Nilsson": "rgb(255, 0, 0)", // Bright Red
 };
 
 

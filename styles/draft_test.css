@@ -1,0 +1,140 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header and Navigation */
+header {
+    background-color: #004488;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #002244;
+}
+
+nav ul li {
+    padding: 10px 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    margin: 20px auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #0066cc;
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #ddd;
+}
+
+/* Mobile Optimization: Scale the Table */
+@media screen and (max-width: 768px) {
+    .overall table, 
+    .season-data table {
+        transform: scale(0.8);
+        transform-origin: top left;
+        display: block;
+        overflow-x: auto;
+    }
+    
+    th, td {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Banner Styling */
+.banner {
+    text-align: center;
+    background-color: #0066cc;
+    color: white;
+    padding: 15px;
+    margin: 20px auto;
+    border-radius: 8px;
+}
+
+/* Season Button Styling */
+.season-button {
+    background-color: #0066cc;
+    color: white;
+    border: 2px solid #0066cc;
+    padding: 12px 18px;
+    margin: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Selected Button */
+.season-button.active {
+    background-color: white;
+    color: #0066cc;
+    border: 2px solid #004488;
+    transform: scale(1.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Effect */
+.season-button:hover {
+    background-color: #004488;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Player Selection */
+.player-data select {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
