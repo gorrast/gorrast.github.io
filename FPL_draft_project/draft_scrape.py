@@ -160,7 +160,7 @@ def main():
     LEAGUE_ID_24_25 = '17526'
     LEAGUE_ID = '110'
     
-    print_response()
+    #print_response()
     
     
     # Get the directory of the current script
