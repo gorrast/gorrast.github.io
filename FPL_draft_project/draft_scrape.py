@@ -28,10 +28,18 @@ def update_data(data, entries, script_dir):
         return data
             
     logging.info('Updating data...')
+
+    #print("League Entries:")
+    #print(response['league_entries'])
+
+    #print("\n\nStandings:")
+    #print(response['standings'])
+    
     for player in response['standings']:
         league_entry = player['league_entry']
-        print(entries)
-        name = entries[league_entry]
+        #print(player)
+        #print(entries)
+        name = entries[str(league_entry)]
         
         # Retrieve data fields we are interested in
         points_for = player['points_for'] # plus_minus for
