@@ -350,3 +350,6 @@
 2025-12-30 06:42:21,466 - INFO - Latest data available, nothing to update
 2025-12-31 06:42:37,644 - INFO - Latest data available, nothing to update
 2026-01-01 06:42:32,327 - INFO - Latest data available, nothing to update
+2026-01-02 06:42:52,154 - INFO - Updating data...
+2026-01-02 06:42:52,160 - INFO - Data saved as JSON-file
+2026-01-02 06:42:52,160 - INFO - Data updated successfully!
