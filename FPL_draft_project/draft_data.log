@@ -427,3 +427,6 @@
 2026-02-27 07:03:30,320 - INFO - Latest data available, nothing to update
 2026-02-28 06:50:09,106 - INFO - Latest data available, nothing to update
 2026-03-01 06:55:33,606 - INFO - Latest data available, nothing to update
+2026-03-02 07:07:34,918 - INFO - Updating data...
+2026-03-02 07:07:34,925 - INFO - Data saved as JSON-file
+2026-03-02 07:07:34,925 - INFO - Data updated successfully!
