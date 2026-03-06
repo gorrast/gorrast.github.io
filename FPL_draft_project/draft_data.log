@@ -433,3 +433,6 @@
 2026-03-03 07:02:14,958 - INFO - Latest data available, nothing to update
 2026-03-04 06:58:38,339 - INFO - Latest data available, nothing to update
 2026-03-05 07:02:07,092 - INFO - Latest data available, nothing to update
+2026-03-06 07:00:15,832 - INFO - Updating data...
+2026-03-06 07:00:15,839 - INFO - Data saved as JSON-file
+2026-03-06 07:00:15,839 - INFO - Data updated successfully!
