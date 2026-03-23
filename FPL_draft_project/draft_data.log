@@ -454,3 +454,6 @@
 2026-03-20 07:04:39,971 - INFO - Latest data available, nothing to update
 2026-03-21 06:55:20,194 - INFO - Latest data available, nothing to update
 2026-03-22 06:59:32,235 - INFO - Latest data available, nothing to update
+2026-03-23 07:21:21,732 - INFO - Updating data...
+2026-03-23 07:21:21,739 - INFO - Data saved as JSON-file
+2026-03-23 07:21:21,739 - INFO - Data updated successfully!
