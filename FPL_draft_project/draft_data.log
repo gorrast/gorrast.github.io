@@ -489,3 +489,6 @@
 2026-04-20 08:20:17,799 - INFO - Latest data available, nothing to update
 2026-04-21 08:03:07,277 - INFO - Latest data available, nothing to update
 2026-04-22 07:59:45,109 - INFO - Latest data available, nothing to update
+2026-04-23 08:05:34,063 - INFO - Updating data...
+2026-04-23 08:05:34,070 - INFO - Data saved as JSON-file
+2026-04-23 08:05:34,070 - INFO - Data updated successfully!
