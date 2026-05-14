@@ -516,3 +516,6 @@
 2026-05-11 09:53:30,268 - INFO - Latest data available, nothing to update
 2026-05-12 08:48:42,965 - INFO - Latest data available, nothing to update
 2026-05-13 08:52:40,140 - INFO - Latest data available, nothing to update
+2026-05-14 08:45:30,423 - INFO - Updating data...
+2026-05-14 08:45:30,430 - INFO - Data saved as JSON-file
+2026-05-14 08:45:30,430 - INFO - Data updated successfully!
