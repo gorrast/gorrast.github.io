@@ -6,6 +6,7 @@ import os
 
 debug = False
 current_season = "25/26"
+current_season = "26/27"
 
 def api_request(league_id):
     url = f"https://draft.premierleague.com/api/league/{league_id}/details"
@@ -81,7 +82,7 @@ def save_as_json(data, file_path):
 def read_json(file_path):
 
     data_path = os.path.join(file_path, 'draft_data.json')
-    entries_path = os.path.join(file_path, 'draft_entries_25_26.json')
+    entries_path = os.path.join(file_path, 'draft_entries_26_27.json')
 
     with open(data_path, 'r') as file:
         data = json.load(file)
@@ -101,9 +102,9 @@ def update_entries(file_path):
     for player in response['league_entries']:
         name = player['entry_name']
         entry = player['id']
-        entries[entry] = name
+        entries[str(entry)] = name
         
-    filename = f"draft_entries_25_26.json"
+    filename = f"draft_entries_26_27.json"
     with open(os.path.join(file_path, filename), 'w') as file:
         json.dump(entries, file)
     return entries
@@ -164,9 +165,10 @@ def new_season(data, script_dir):
     return data, entries
 
 def main():
-    global LEAGUE_ID
+    global LEAGUE_ID, max_gw
     LEAGUE_ID_24_25 = '17526'
-    LEAGUE_ID = '110'
+    LEAGUE_ID_25_26 = '110'
+    LEAGUE_ID = '13492'
     
     #print_response()
     
@@ -186,16 +188,13 @@ def main():
         # new season, setup new dict
         logging.info("New season, preparing data...")
         data, entries = new_season(data, script_dir)
-        
     
-    
+    first_team = next(iter(data[current_season]))
+    max_gw = 38
     for gw in range(39):
-        if data[current_season]['Florian AuschWirtz'][gw] == {}: # Find the first empty gameweek
-            global max_gw
+        if data[current_season][first_team][gw] == {}: # Find the first empty gameweek
             max_gw = gw - 1
             break
-        if gw == 39:
-            logging.info("Season complete, nothing to update")
 
     data = update_data(data, entries, script_dir)
 
