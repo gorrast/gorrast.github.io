@@ -1,6 +1,6 @@
 
 // Value for what season should be viewed. Defaulted to the most recent one
-let currentSeason = "25/26";
+let currentSeason = "26/27";
 let rankChart;
 let totalChart;
 let forChart;
