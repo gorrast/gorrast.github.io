@@ -553,3 +553,6 @@
 2026-09-04 10:22:07,334 - INFO - Latest data available, nothing to update
 2026-09-05 09:49:29,293 - INFO - Latest data available, nothing to update
 2026-09-06 10:05:48,399 - INFO - Latest data available, nothing to update
+2026-09-07 11:20:14,662 - INFO - Updating data...
+2026-09-07 11:20:14,670 - INFO - Data saved as JSON-file
+2026-09-07 11:20:14,670 - INFO - Data updated successfully!
