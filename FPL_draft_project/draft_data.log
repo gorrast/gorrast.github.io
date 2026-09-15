@@ -563,3 +563,6 @@
 2026-09-12 09:55:38,337 - INFO - Latest data available, nothing to update
 2026-09-13 10:55:57,847 - INFO - Latest data available, nothing to update
 2026-09-14 11:29:54,131 - INFO - Latest data available, nothing to update
+2026-09-15 10:51:21,397 - INFO - Updating data...
+2026-09-15 10:51:21,405 - INFO - Data saved as JSON-file
+2026-09-15 10:51:21,405 - INFO - Data updated successfully!
