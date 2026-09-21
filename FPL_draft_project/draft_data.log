@@ -571,3 +571,6 @@
 2026-09-18 10:24:13,961 - INFO - Latest data available, nothing to update
 2026-09-19 10:08:08,217 - INFO - Latest data available, nothing to update
 2026-09-20 10:26:43,438 - INFO - Latest data available, nothing to update
+2026-09-21 11:43:50,301 - INFO - Updating data...
+2026-09-21 11:43:50,309 - INFO - Data saved as JSON-file
+2026-09-21 11:43:50,309 - INFO - Data updated successfully!
