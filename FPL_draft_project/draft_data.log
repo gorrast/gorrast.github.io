@@ -647,3 +647,6 @@
 2026-11-21 14:01:09,938 - INFO - Latest data available, nothing to update
 2026-11-22 13:54:44,252 - INFO - Latest data available, nothing to update
 2026-11-23 17:06:20,351 - INFO - Latest data available, nothing to update
+2026-11-24 16:51:11,524 - INFO - Updating data...
+2026-11-24 16:51:11,533 - INFO - Data saved as JSON-file
+2026-11-24 16:51:11,533 - INFO - Data updated successfully!
